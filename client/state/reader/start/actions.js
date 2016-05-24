@@ -47,19 +47,21 @@ export function requestRecommendations() {
 				// Collect sites and posts from meta, and receive them separately
 				const sites = map( data.recommendations, property( 'meta.data.site' ) );
 				const posts = map( data.recommendations, property( 'meta.data.post' ) );
+
 				dispatch( updateSites( sites ) );
-				dispatch( receivePosts( posts ) );
 
-				// Trim meta off before receiving recommendations
-				const recommendations = map( data.recommendations, ( recommendation ) => {
-					return omit( recommendation, 'meta' );
-				} );
+				return dispatch( receivePosts( posts ) ).then( () => {
+					// Trim meta off before receiving recommendations
+					const recommendations = map( data.recommendations, ( recommendation ) => {
+						return omit( recommendation, 'meta' );
+					} );
 
-				dispatch( receiveRecommendations( recommendations ) );
+					dispatch( receiveRecommendations( recommendations ) );
 
-				dispatch( {
-					type: READER_START_RECOMMENDATIONS_REQUEST_SUCCESS,
-					data
+					dispatch( {
+						type: READER_START_RECOMMENDATIONS_REQUEST_SUCCESS,
+						data
+					} );
 				} );
 			},
 			( error ) => {
