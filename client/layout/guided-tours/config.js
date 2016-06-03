@@ -43,7 +43,7 @@ function get( site ) {
 			placement: 'beside',
 			next: ( () => {
 				if ( site && site.is_previewable ) {
-					return 'preview';
+					return 'click-preview';
 				}
 				if ( site && site.is_customizable ) {
 					return 'themes';
@@ -51,7 +51,7 @@ function get( site ) {
 				return 'finish';
 			}() ),
 		},
-		preview: {
+		'click-preview': {
 			target: 'site-card-preview',
 			arrow: 'top-left',
 			type: 'ActionStep',
@@ -64,6 +64,16 @@ function get( site ) {
 					strong: <strong />,
 				}
 			} ),
+			next: 'in-preview',
+		},
+		'in-preview': {
+			text: i18n.translate( "This is your site's {{strong}}Preview{{/strong}}. From here you can see how your site looks to others.", {
+				components: {
+					strong: <strong />,
+				}
+			} ),
+			type: 'BasicStep',
+			placement: 'center',
 			next: 'close-preview',
 		},
 		'close-preview': {
@@ -72,11 +82,7 @@ function get( site ) {
 			type: 'ActionStep',
 			placement: 'beside',
 			icon: 'cross-small',
-			text: i18n.translate( 'Below you can see a {{strong}}Preview{{/strong}} of your site. You can come back here anytime.', {
-				components: {
-					strong: <strong />,
-				}
-			} ),
+			text: i18n.translate( 'Take a look at your site—and then close the site preview. You can come back here anytime.' ),
 			next: ( () => {
 				if ( site && site.is_customizable ) {
 					return 'themes';
@@ -112,5 +118,5 @@ function get( site ) {
 
 export default {
 	get,
-	version: '20160421',
+	version: '20160601',
 };
