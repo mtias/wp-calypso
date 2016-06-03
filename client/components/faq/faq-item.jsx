@@ -19,3 +19,4 @@ FAQItem.propTypes = {
 };
 
 export default FAQItem;
+

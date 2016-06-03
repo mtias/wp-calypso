@@ -18,3 +18,4 @@ export default ( { heading = i18n.translate( 'Frequently Asked Questions' ), chi
 		</div>
 	);
 };
+
