@@ -81,8 +81,9 @@ module.exports = {
 		'space-after-keywords': [ 1, 'always' ],
 		'space-before-blocks': [ 1, 'always' ],
 		'space-before-function-paren': [ 1, 'never' ],
-		// Our array literal index exception violates this rule
-		'space-in-brackets': 0,
+		'computed-property-spacing': [ 1, 'always' ],
+		'object-curly-spacing': [ 1, 'always' ],
+		'array-bracket-spacing': [ 1, 'always' ],
 		'space-in-parens': [ 1, 'always' ],
 		'space-infix-ops': [ 1, { 'int32Hint': false } ],
 		// Ideal for '!' but not for '++'
