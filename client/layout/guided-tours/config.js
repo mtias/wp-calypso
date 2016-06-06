@@ -59,7 +59,7 @@ function get( site ) {
 				context: "Click your site's name to continue.",
 			} ),
 			placement: 'below',
-			text: i18n.translate( 'Open {{strong}}Preview{{/strong}} to see what your site looks like.', {
+			text: i18n.translate( "This shows your currently {{strong}}selected site{{/strong}}'s name and address.", {
 				components: {
 					strong: <strong />,
 				}
