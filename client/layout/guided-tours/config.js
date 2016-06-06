@@ -71,7 +71,7 @@ function get( site ) {
 					return 'themes';
 				}
 				return 'finish';
-			}() ),
+			} )(),
 		},
 		themes: {
 			text: i18n.translate( "Change your {{strong}}Theme{{/strong}} to choose a new layout, or {{strong}}Customize{{/strong}} your theme's colors, fonts, and more.", {
